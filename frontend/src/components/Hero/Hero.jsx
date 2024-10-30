@@ -1,10 +1,31 @@
 import React from 'react';
 import Slider from "react-slick";
+import Image1 from "../../assets/hero/headphone.png";
+import Image2 from "../../assets/category/vr.png";
+import Image3 from "../../assets/category/macbook.png";
 
-const HeroSlide = [
+const HeroData = [
     {
-        id
-    }
+        id: 1,
+        img: Image1,
+        subtitle: "Beats Solo",
+        title: "Wireless",
+        title2: "Headphone",
+    },
+    {
+        id: 2,
+        img: Image2,
+        subtitle: "Beats Solo",
+        title: "Wireless",
+        title2: "Virtual",
+    },
+    {
+        id: 3,
+        img: Image3,
+        subtitle: "Beats Solo",
+        title: "Branded",
+        title2: "Laptops",
+    },
 ]
 
 const Hero = () => {
@@ -25,24 +46,24 @@ const Hero = () => {
         <div className="w-full"> 
             {/* Hero sction */}
             <Slider {...settings}>
-                <div className="w-full">
-                    <h3>1</h3>
-                </div>
-                <div className="w-full">
-                    <h3>2</h3>
-                </div>
-                <div className="w-full">
-                    <h3>3</h3>
-                </div>
-                <div className="w-full">
-                    <h3>4</h3>
-                </div>
-                <div className="w-full">
-                    <h3>5</h3>
-                </div>
-                <div className="w-full">
-                    <h3>6</h3>
-                </div>
+                {
+                    HeroData.map((data) => (
+                        <div key={data.id}>
+                            <div className="grid grid-cols-1 sm:grid-cols-2">
+                                {/* text content section */}
+                                <div>
+                                    <h1>{data.subtitle}</h1>
+                                    <h1>{data.title}</h1>
+                                    <h1>{data.title2}</h1>
+                                    <div>
+                                        <button>Shop Now</button>
+                                    </div>
+                                </div>
+                                {/* img section */}
+                            </div>
+                        </div>
+                    ))
+                }
             </Slider>
         </div>
     </div>
